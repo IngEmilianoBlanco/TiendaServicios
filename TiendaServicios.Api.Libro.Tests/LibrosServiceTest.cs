@@ -19,6 +19,7 @@
     {
         private IEnumerable<LibreriaMaterial> ObtenerDataPrueba()
         {
+            // ESTE MÉTODO ES PARA LLENAR CON DATA GEMFU
             A.Configure<LibreriaMaterial>()
                 .Fill(x => x.Titulo).AsArticleTitle()
                 .Fill(x => x.LibreriaMaterialId, () => { return Guid.NewGuid(); });
@@ -87,8 +88,6 @@
         [Fact]
         public async void GuardarLibro()
         {
-            System.Diagnostics.Debugger.Launch();
-
             var options = new DbContextOptionsBuilder<Contextolibreria>()
                 .UseInMemoryDatabase(databaseName: "BaseDatosLibro")
                 .Options;
